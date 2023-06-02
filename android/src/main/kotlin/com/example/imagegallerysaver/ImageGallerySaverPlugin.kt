@@ -92,7 +92,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
         return try {
             val fos = context?.contentResolver?.openOutputStream(fileUri)!!
             println("ImageGallerySaverPlugin $quality")
-//            bmp.compress(Bitmap.CompressFormat.JPEG, quality, fos)
+            bmp.compress(Bitmap.CompressFormat.PNG, quality, fos)
             fos.flush()
             fos.close()
             context!!.sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, fileUri))
